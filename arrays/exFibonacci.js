@@ -1,6 +1,5 @@
 let numero = parseInt(prompt("Digite um número: "));
 let fibonacci = [];
-
 fibonacci[0] = numero - 1;
 fibonacci[1] = numero;
 

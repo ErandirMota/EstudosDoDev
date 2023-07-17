@@ -1,8 +1,15 @@
-let numeros = [1, 2, 3, 4, 5];
-console.log(numeros);
+let numeros = [];
+
+let contador = 0;
+
+for(let i = 1; i <= 5; i++) {
+  let numero = parseInt(prompt(`Digite o ${i} número: `));
+  numeros[contador] = numero;
+  contador++
+}
 
 let inicio = 0;
-let fim = numeros.length - 1;
+let fim = numeros.length;
 
 while (inicio < fim) {
   let temp = numeros[inicio];
@@ -13,4 +20,5 @@ while (inicio < fim) {
   fim--;
 }
 
+console.log("Números ao contrário: ");
 console.log(numeros);
