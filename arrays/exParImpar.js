@@ -1,17 +1,24 @@
-let numeros = [];
+let array = [];
 let arrayPares = [];
 let arrayImpares = [];
-let contador = 0;
+
 for (let i = 0; i < 5; i++) {
-  numeros[contador] = parseInt(prompt(`Digite o ${i} número: `));
-  if (numeros[contador] % 2 == 0) {
-    arrayPares[i] = numeros[contador];
+  let numero = parseInt(prompt("Digite um número: "));
+  array[i] = numero;
+}
+console.log(array);
+
+let parOuImpar = 0;
+let contador = 0;
+
+for (let i = 0; i < array.length; i++) {
+  if (array[i] % 2 == 0) {
+    arrayPares[contador] = array[i];
   } else {
-    arrayImpares[i] = numeros[contador];
+    arrayImpares[contador] = array[i];
   }
   contador++;
 }
 
-console.log(numeros[contador]);
-console.log(arrayPares[contador]);
-console.log(arrayImpares[contador]);
+console.log("Quantidade de número Pares: ", arrayPares);
+console.log("Quantidade de números Impares: ", arrayImpares);
