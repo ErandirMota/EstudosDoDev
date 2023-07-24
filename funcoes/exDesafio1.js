@@ -1,59 +1,65 @@
-let continuar = true;
-let array = [];
+let historico = [];
+
+function somarNumeros(a, b) {
+  return a + b;
+}
+
+function subtrairNumeros(a, b) {
+ return a - b;
+}
+
+function multiplicarNumeros(a, b) {
+ return a * b;
+}
+
+function dividirNumeros(a, b) {
+ return a / b;
+}
+
 let contador = 0;
-
-function SomarNumeros(num1, num2) {
-  return num1 + num2;
-}
-
-function SubtrairNumeros(num1, num2) {
-  return num1 - num2;
-}
-
-function MultiplicarNumeros(num1, num2) {
-  return num1 * num2;
-}
-
-function DividirNumeros(num1, num2) {
-  return num1 / num2;
-}
-
+let continuar = true;
 while (continuar) {
-  let num1 = parseInt(prompt("Digite o primeiro número: "))
-  let num2 = parseInt(prompt("Digite o segundo número: "))
+  let a = parseInt(prompt("Digite um número: "));
+  let b = parseInt(prompt("Digite outro número: "));
 
-  let escolhaOperação = parseInt(prompt("Digite qual operação deseja realizar: \n1 - Soma \n2 - Subtração \n3 - Multiplicação \n4 - Divisão"))
+  let opcao = parseInt(prompt("\n1 - Somar \n2 - Subtrair \n3 - Multiplicar \n4 - Dividir"));
 
-  let resultado;
-  switch (escolhaOperação) {
+  let resultadoOperacao;
+  switch(opcao) {
     case 1:
-      resultado = SomarNumeros(num1, num2);
+      resultadoOperacao = somarNumeros(a, b);
       break;
     case 2:
-      resultado = SubtrairNumeros(num1, num2);
+      resultadoOperacao = subtrairNumeros(a, b);
       break;
     case 3:
-      resultado = MultiplicarNumeros(num1, num2);
+      resultadoOperacao = multiplicarNumeros(a, b);
       break;
     case 4:
-      resultado = DividirNumeros(num1, num2);
+      resultadoOperacao = dividirNumeros(a, b);
       break;
     default:
-      console.log("[ERRO] Escolha uma opcção correta!");
+      console.log('Opção inválida!');
+      break;
   }
 
-  array[contador] = resultado;
+  historico[contador] = resultadoOperacao;
   contador++;
 
-  let desejaContinuar = prompt("Deseja continuar calculando? (s) sim ou (n) não: ");
+  console.log("O resultado da operação é: ", resultadoOperacao);
+  let desejaContinuar = prompt("Deseja continuar calculando? (s) Sim ou (n) Não: ");
+
+  function exibirHistorico() {
+    console.log("Histórico de resultados: ");
+
+    for (let i = 0; i < historico.length; i++) {
+      console.log(`Resultado ${i}: ${historico[i]}`);
+    }
+  }
 
   if (desejaContinuar == "n") {
     continuar = false;
   }
 }
 
-function exibirArray() {
-  console.log(array);
-}
-
-
+exibirHistorico();

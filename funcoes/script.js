@@ -1,15 +1,13 @@
-CalcularMedia(10, 10);
+// Função - Metodo
 
-function CalcularMedia(num1, num2) {
-  console.log("Calcular a média: ")
-  console.log((num1 + num2) / 2);
+CalcularMedia()
+
+function CalcularMedia() {
+  console.log((2 + 2) / 2)
 }
-
-PerguntarNome();
 
 function PerguntarNome() {
-  var nome = prompt("Digite um nome: ");
-  return nome;
+  console.log(media)
+  var nome = prompt("Digite seu nome: ")
+  return nome
 }
-
-console.log(PerguntarNome());
