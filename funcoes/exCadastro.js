@@ -1,65 +1,91 @@
-let nomes = []
-let senhas = []
-let contador = 0
+// Arrays para guardar os nomes e senhas
+let nomes = [];
+let senhas = [];
+let contador = 0;
 
-function solicitarValores() {
-  let nome = prompt("Digite o nome do usuário: ")
-  nomes[contador] = nome
-  let senha = prompt("Digite a senha do usuário: ")
-  senhas[contador] = senha
-  contador++
+// Função para cadastrar um novo usuário
+function cadastrarUsuario() {
+  let nome = prompt("Digite o nome do usuário: ");
+  let senha = prompt("Digite a senha do usuário: ");
 
-  solicitarDesejo(nome, senha)
+  nomes[contador] = nome;
+  senhas[contador] = senha;
+  contador++;
+  console.log("Usuário cadastrado com sucesso!");
 }
 
-function solicitarDesejo(nome, senha) {
-  let escolha = parseInt(
-    prompt(
-      "\n1 - Cadastrar\n2 - Fazer login\n3 - Excluir cadastro\n4 - Encerrar programa"
-    )
-  )
-
-  let cadastro
-  let login
-  let excluirCadastro
-  switch (escolha) {
-    case 1:
-      nome = prompt("Digite o nome do usuário para cadastro: ")
-      nomes[contador] = nome
-      senha = prompt("Digite a senha do usuário para cadastro: ")
-      senhas[contador] = senha
-      contador++
-      break
-    case 2:
-      nome = prompt("Digite o nome do usuário: ")
-      senha = prompt("Digite a senha do usuário: ")
-      break
-    case 3:
-      nome = prompt("Digite o nome do usuário que deseja excluir: ")
-      senha = prompt("DIgite a senha do usuário que deseja excluir: ")
-      break
-    case 4:
-      console.log("Programa encerrado.")
-      break
-    default:
-      alert("Opção inválida!")
-      break
-  }
+// Função para exibir as opções e receber resposta do usuário
+function exibirEscolha() {
+  let opcao = parseInt(prompt("Escolha umas das opções: \n1 - Cadastrar usuário \n2 - Fazer login \n3 - Excluir cadastro \n4 - Encerrrar programa"));
+  return opcao;
 }
 
-function procurarUsuario() {
-  let nome = prompt("Digite o nome do usuário: ")
-  let senha = prompt("Digite a senha do usuário: ")
+// Função para fazer login
+function fazerLogin() {
+  let nome = prompt("Digite o nome do usuário: ");
+  let senha = prompt("Digite a senha do usuário: ");
 
   for (let i = 0; i < nomes.length; i++) {
-    if (nomes[i] == nome) {
-      if (senhas[i] == senha) {
-        console.log("true");
-      }
+    if (nome == nomes[i] && senha == senhas[i]) {
+      return true;
     } else {
-      console.log("false");
+      return false;
     }
   }
 }
 
-console.log(procurarUsuario());
+// Função para excluir cadastro
+function excluirCadastro() {
+  let nomesSup = [];
+  let senhasSup = [];
+  let contSup = 0;
+
+  let nome = prompt("Digite o nome do usuário que será excluído: ");
+
+  for (let i = 0; i < nomes.length; i++) {
+    if (nome == nomes[i]) {
+      console.log("Usuário excluído com sucesso!")
+    } else {
+      nomesSup[contSup] = nomes[i];
+      senhasSup[contSup] = senhas[i];
+      contSup++;
+    }
+  }
+
+  nomes = nomesSup;
+  senha = senhasSup;
+}
+
+// Fluxo de funcionamento do programa
+let continuar = "s";
+while (continuar == "s") {
+  let opcao = exibirEscolha();
+  
+  switch (opcao) {
+    case 1:
+      cadastrarUsuario();
+      break;
+    case 2:
+      let login = fazerLogin();
+      if (login == true) {
+        console.log("Login feito com sucesso")
+      } else {
+        console.log("Usuário não foi encontrado")
+      }
+      break;
+    case 3:
+      excluirCadastro();
+      break;
+    case 4:
+      console.log("Programa encerrado.")
+      continuar = "n"
+      break;
+    default:
+      console.log("Opção inválida!");
+      break;
+  }
+  if (continuar == "s") {
+    continuar = prompt("Deseja realizar outra operação (s) Sim ou (n) Não: ");
+  }
+}
+
