@@ -13,7 +13,7 @@ function cadastrarUsuario() {
   contador++;
   console.log("Usuário cadastrado com sucesso!");
 }
-
+ 
 // Função para exibir as opções e receber resposta do usuário
 function exibirEscolha() {
   let opcao = parseInt(prompt("Escolha umas das opções: \n1 - Cadastrar usuário \n2 - Fazer login \n3 - Excluir cadastro \n4 - Encerrrar programa"));
