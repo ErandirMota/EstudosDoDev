@@ -1,27 +1,26 @@
-// Variável para guardar os projetos e saldos
 let projetos = [];
 let orcamentos = [];
 let contador = 0;
 
-// Função que cria um novo projeto
+// Função para criar um novo projeto
 function criarProjeto() {
-  let nomeProjeto = prompt("Digite o nome do projeto: ");
-  let orcamentoTotal = parseFloat(prompt("Digite o orçamento total do projeto: "));
+  let nome = prompt("Digite o nome do projeto: ");
+  let orcamentoTotal = parseFloat("Digite o orçamento total do projeto: ");
 
-  projetos[contador] = nomeProjeto;
+  projetos[contador] = nome;
   orcamentos[contador] = orcamentoTotal;
 
-  console.log("Projeto foi criado com sucesso!");
+  console.log("Projeto criado com sucesso!");
 }
 
-// Função que adiciona Receita ou Despesa
-function adicionarReceitaOuDespesa(nomeProjeto, valor, tipoDespesa) {
+// Função para adicionar receita ou despesa no projeto
+function receberDados(nome, valor, tipoDespesa) {
   for (let i = 0; i < projetos.length; i++) {
-    if (nomeProjeto === projetos[i]) {
+    if (nome === projetos[i]) {
       if (tipoDespesa === "R") {
         orcamentos[i] += valor;
       } else if (tipoDespesa === "D" && valor > orcamentos[i]) {
-        console.log("O valor da despesa é maior que o saldo disponível!");
+        console.log("O saldo disponível é insuficiente para retirada!");
       } else {
         orcamentos[i] -= valor;
       }
