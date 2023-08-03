@@ -1,34 +1,41 @@
-let id = [];
-let nome = [];
-let preco = [];
-let avaliacao = [];
+let ids = [];
+let nomes = [];
+let precos = [];
+let avaliacoes = [];
+let contador = 0;
 
 function cadastrarProduto() {
-  let contador = 0;
+  let id = contador + 1;
+  let nome = prompt("Digite o nome do produto: ");
+  let preco = parseFloat(prompt("Digite o preço do produto: "));
+  let avaliacao = parseInt(prompt("Digite a avaliação do produto: "));
 
-  let cadastrarID = parseInt(prompt("Digite o ID do produto:"));
-  id[contador] = cadastrarID;
+  ids[contador] = id;
+  nomes[contador] = nome;
+  precos[contador] = preco;
+  avaliacoes[contador] = avaliacao;
+  contador++;
 
-  let cadastrarNome = prompt("Digite o nome do produto: ");
-  nome[contador] = cadastrarNome;
-
-  let cadastrarPreco = parseFloat(prompt("Digite o preço do produto: "));
-  preco[contador] = cadastrarPreco;
-
-  let cadastrarAvaliacao = parseFloat(prompt("Digite a avaliação do produto: "));
-  avaliacao[contador] = cadastrarAvaliacao;
-
-  return { id, nome, preco, avaliacao };
+  console.log("Produto cadastrado com sucesso!");
 }
 
-const dadosRetornados = cadastrarProduto(); 
-
-function buscarPorID() {
-  console.log(dadosRetornados.id);
-  console.log(dadosRetornados.nome);
+// Função para buscar produto pelo ID
+function buscarPorID(id) {
+  for (let i = 0; i < ids.length; i++) {
+    if (id == ids[i]) {
+      console.log(`id: ${ids[i]}`);
+      console.log(`nome: ${nomes[i]}`);
+      console.log(`preço: R$ ${precos[i]}`);
+      console.log(`avaliação: ${avaliacoes[i]}`);
+    }
+  }
 }
 
-cadastrarProduto();
-buscarPorID();
-
-
+// Função para buscar produto pelo nome e retornar o ID
+function buscarPorNome(nome) {
+  for (let i = 0; i < nomes.length; i++) {
+    if (nome = nomes[i]) {
+      return ids[i];
+    }
+  }
+}
