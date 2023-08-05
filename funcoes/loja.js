@@ -144,3 +144,78 @@ while (continuar) {
       break
   }
 }
+
+// Função para excluir produtos do carrinho
+function excluirDoCarrinho(nomeProduto, quantidade) {
+  let indexProduto = carrinho.findIndex(item => item.nome === nomeProduto);
+
+  if (indexProduto !== -1) {
+    // O produto está no carrinho
+    let produtoNoCarrinho = carrinho[indexProduto];
+    if (quantidade >= produtoNoCarrinho.quantidade) {
+      // Excluir o produto inteiro do carrinho
+      carrinho.splice(indexProduto, 1);
+      console.log(`Produto ${nomeProduto} removido completamente do carrinho.`);
+    } else {
+      // Atualizar a quantidade do produto no carrinho
+      produtoNoCarrinho.quantidade -= quantidade;
+      console.log(`Foram removidos ${quantidade} ${nomeProduto}(s) do carrinho.`);
+    }
+  } else {
+    console.log(`O produto ${nomeProduto} não está no carrinho.`);
+  }
+}
+
+// Função para calcular o valor total dos produtos no carrinho
+function calcularValorTotalCarrinho() {
+  let valorTotal = 0;
+  for (let item of carrinho) {
+    let indexProduto = nomes.indexOf(item.nome);
+    if (indexProduto !== -1) {
+      valorTotal += precos[indexProduto] * item.quantidade;
+    }
+  }
+  return valorTotal;
+}
+
+// Função para exibir o carrinho e o valor total
+function exibirCarrinho() {
+  console.log("Carrinho de Compras:");
+  for (let item of carrinho) {
+    let indexProduto = nomes.indexOf(item.nome);
+    if (indexProduto !== -1) {
+      console.log(`${item.nome} - Quantidade: ${item.quantidade} - Valor Unitário: R$ ${precos[indexProduto]} - Valor Total: R$ ${precos[indexProduto] * item.quantidade}`);
+    }
+  }
+  console.log(`Valor Total do Carrinho: R$ ${calcularValorTotalCarrinho()}`);
+}
+
+// Fluxo de funcionamento do carrinho
+let continuarCarrinho = true;
+while (continuarCarrinho) {
+  let opcaoCarrinho = parseInt(prompt("Escolha uma opção: \n1 - Adicionar produto ao carrinho \n2 - Excluir produto do carrinho \n3 - Exibir produtos no carrinho e valor total \n4 - Encerrar carrinho"));
+
+  switch (opcaoCarrinho) {
+    case 1:
+      let nomeProduto = prompt("Digite o nome do produto: ");
+      let quantidadeAdicionar = parseInt(prompt("Digite a quantidade a adicionar: "));
+      adicionarAoCarrinho(nomeProduto, quantidadeAdicionar);
+      break;
+    case 2:
+      let nomeProdutoExcluir = prompt("Digite o nome do produto: ");
+      let quantidadeExcluir = parseInt(prompt("Digite a quantidade a excluir: "));
+      excluirDoCarrinho(nomeProdutoExcluir, quantidadeExcluir);
+      break;
+    case 3:
+      exibirCarrinho();
+      break;
+    case 4:
+      continuarCarrinho = false;
+      console.log("Carrinho encerrado.");
+      break;
+    default:
+      alert("Opção inválida!");
+      break;
+  }
+}
+
