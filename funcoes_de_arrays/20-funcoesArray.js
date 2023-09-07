@@ -51,6 +51,11 @@ while (continuar) {
       let nome = prompt("Digite o nome do usuário: ");
       let senha = prompt("Digite a senha do usuário: ");
       fazerLogin(nome, senha);
+      if (fazerLogin) {
+        console.log("Login feito com sucesso");
+      } else {
+        console.log("Nome ou senha incorretos!");
+      }
       break;
     case 3:
       let excluirNome = prompt("Digite o nome de usuário que deseja excluir: ");
