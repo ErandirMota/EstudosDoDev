@@ -1,0 +1,29 @@
+.cabeçalho {
+  text-align: center;
+}
+
+.principal {
+  width: 700px;
+}
+
+.sobre {
+  height: 250px;
+  width: 230px;
+  float: 50px;
+}
+
+.rotina {
+  background-color: blue;
+}
+
+.hobbies {
+  background-color: yellow;
+}
+
+.bandas {
+  background-color: green;
+}
+
+.viagens {
+  background-color: red;
+}
