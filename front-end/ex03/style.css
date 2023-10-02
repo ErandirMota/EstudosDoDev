@@ -1,29 +1,38 @@
-.cabeçalho {
+.abertura {
+  max-width: 80%;
+  margin: 0 auto;
   text-align: center;
+  background-color: whitesmoke;
 }
 
-.principal {
-  width: 700px;
-}
-
-.sobre {
-  height: 250px;
-  width: 230px;
-  float: 50px;
-}
-
-.rotina {
+.card1 { 
+  width: 20vw;
+  margin: 1vh 1.25vw;
+  height: 200px;
   background-color: blue;
+  float: left;
 }
 
-.hobbies {
+.card2 { 
+  width: 20vw;
+  margin: 1vh 1.25vw;
+  height: 200px;
   background-color: yellow;
+  float: left;
 }
 
-.bandas {
+.card3 { 
+  width: 20vw;
+  margin: 1vh 1.25vw;
+  height: 200px;
   background-color: green;
+  float: left;
 }
 
-.viagens {
+.card4 { 
+  width: 20vw;
+  margin: 1vh 1.25vw;
+  height: 200px;
   background-color: red;
+  float: left;
 }

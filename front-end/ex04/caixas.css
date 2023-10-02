@@ -1,0 +1,14 @@
+.cabeçalho {
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: blue;
+}
+
+.card {
+  width: 20vw;
+  margin: 1vh 1.25vw;
+  height: 200px;
+  background-color: red;
+  float: left;
+}
