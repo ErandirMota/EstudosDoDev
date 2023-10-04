@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+  <section class="cabeçalho">
+    <h1>Cadastro de Carros</h1>
+  </section>
+  <section class="formulario">
+    <div>
+      <label for="modelo">Modelo:</label>
+      <input type="text" name="modelo" id="modelo" placeholder="ex: Uno">
+    </div>
+    <div>
+      <label for="marca">Marca:</label>
+      <input type="text" name="marca" id="marca" placeholder="ex: Fiat">
+    </div>
+    <div>
+      <label for="ano">Ano:</label>
+      <input type="text" name="ano" id="ano" placeholder="ex: 2010">
+    </div>
+    <div>
+      <label for="quilometragem">Quilometragem:</label>
+      <input type="text" name="quilometragem" id="quilometragem" placeholder="ex: 10000km">
+    </div>
+    <div>
+      <label for="valor">Valor:</label>
+      <input type="text" name="valor" id="valor" placeholder="ex: 35000">
+    </div>
+    <div>
+      <label for="novo">Novo</label>
+      <input type="radio" name="carro" id="carro">
+      <label for="usado">Usado</label>
+      <input type="radio" name="carro" id="carro">
+    </div>
+    <div>
+      <label for="airbag">Airbag</label>
+      <input type="checkbox" name="airbag" id="airbag">
+      <label for="alarme">Alarme</label>
+      <input type="checkbox" name="alarme" id="alarme">
+      <label for="ar">Ar Condicionado</label>
+      <input type="checkbox" name="ar" id="ar"> 
+      <label for="abs">ABS</label>
+      <input type="checkbox" name="abs" id="abs"> 
+    </div>
+    <div>
+      <label for="placa">Final da Placa</label>
+      <select name="placa" id="placa">
+        <option value="">Escolha o final da placa</option>
+        <option value="primeira">5B70</option>
+        <option value="segunda">6F07</option>
+        <option value="terceira">3L89</option>
+        <option value="quarta">1A20</option>
+        <option value="quinta">2F45</option>
+      </select>
+    </div>
+    <div>
+      <input type="submit" value="Cadastrar">
+    </div>
+  </section>
+</body>
+</html>
