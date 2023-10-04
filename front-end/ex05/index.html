@@ -5,39 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="formulario.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
   <section class="cabeçalho">
     <h1>Cadastro de Carros</h1>
   </section>
   <section class="formulario">
-    <div>
+    <div class="texto">
       <label for="modelo">Modelo:</label>
       <input type="text" name="modelo" id="modelo" placeholder="ex: Uno">
     </div>
-    <div>
+    <div class="especificacoes">
       <label for="marca">Marca:</label>
       <input type="text" name="marca" id="marca" placeholder="ex: Fiat">
     </div>
-    <div>
+    <div class="especificacoes">
       <label for="ano">Ano:</label>
       <input type="text" name="ano" id="ano" placeholder="ex: 2010">
     </div>
-    <div>
+    <div class="especificacoes">
       <label for="quilometragem">Quilometragem:</label>
       <input type="text" name="quilometragem" id="quilometragem" placeholder="ex: 10000km">
     </div>
-    <div>
+    <div class="especificacoes">
       <label for="valor">Valor:</label>
       <input type="text" name="valor" id="valor" placeholder="ex: 35000">
     </div>
-    <div>
+    <div class="especificacoes">
       <label for="novo">Novo</label>
       <input type="radio" name="carro" id="carro">
       <label for="usado">Usado</label>
       <input type="radio" name="carro" id="carro">
     </div>
-    <div>
+    <div class="especificacoes">
       <label for="airbag">Airbag</label>
       <input type="checkbox" name="airbag" id="airbag">
       <label for="alarme">Alarme</label>
@@ -47,7 +50,7 @@
       <label for="abs">ABS</label>
       <input type="checkbox" name="abs" id="abs"> 
     </div>
-    <div>
+    <div class="especificacoes">
       <label for="placa">Final da Placa</label>
       <select name="placa" id="placa">
         <option value="">Escolha o final da placa</option>

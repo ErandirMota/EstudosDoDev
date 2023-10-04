@@ -1,0 +1,16 @@
+.cabeçalho {
+  margin: 3%;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.formulario {
+  text-align: center;
+  padding-top: 2%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.especificacoes {
+  margin: 15px;
+}
+
