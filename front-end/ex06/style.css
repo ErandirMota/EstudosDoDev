@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(233, 231, 231);
+}
+
+.headerSection {
+  text-align: center;
+  background-color: rgb(233, 233, 64);
+}
+
+.headerSearch {
+  margin: 1vw;
+}
+
+.navBar {
+  margin: 1vw;
+}
+
+.offer {
+  background-color: white;
+  width: 80%;
+  padding: 30px;
+  align-items: start;
+  margin-top: 2vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+#first {
+  border-right: solid;
+  border-right-width: 1px;
+  padding-right: 10px;
+}
