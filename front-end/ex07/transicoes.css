@@ -1,0 +1,40 @@
+.navBar {
+  display: inline;
+  margin: 10px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+}
+
+.navBar:hover {
+  transition-duration: 0.5s;
+  padding: 6px;
+  transition-property: 1s;
+  background-color: aqua;
+}
+
+div {
+  margin: 15px 20px;
+}
+
+select {
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: rgb(0, 0, 0, 0.712);
+  padding: 4px;
+}
+
+input {
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 5px;
+}
+
+#enviar {
+  background-color: rgba(0, 0, 0, 0.712);
+  border-radius: 5px;
+  border-width: 1px;
+  color: rgb(205, 254, 249);
+  padding: 7px;
+}
