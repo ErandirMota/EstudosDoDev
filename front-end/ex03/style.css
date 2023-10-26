@@ -11,6 +11,8 @@
   height: 200px;
   background-color: blue;
   float: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .card2 { 
