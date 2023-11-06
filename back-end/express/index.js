@@ -3,27 +3,36 @@ const app = express();
 
 app.use(express.json());
 
-// Responsável por pegar todos os alunos
-app.get('/alunos', (req, res) => {
-  console.log(req.query);
-  console.log('entrou no alunos');
-  res.status(200).send('deu certo');
+app.listen(3000, () => {
+  console.log("Server started");
 });
 
-// Responsavel por pegar um aluno
-app.get("/alunos/:id/:outro", (req, res) => {
-  console.log(req.params.id);
-  console.log(req.params.outro);
-  console.log("entrou no alunos")
-  res.status(200).send("deu certo")
-})
+// GET
+app.get('/usuarios', (req, res) => {
+  console.log("API get all");
+  res.status(200).send("All users");
+});
 
-app.post('/alunos', (req, res) => {
-  console.log(req.body);
-  console.log('entrou no alunos');
+// GET by ID
+app.get('/usuarios/:id', (req, res) => {
+  console.log("API get by id");
+  res.status(200).send(req.params.id);
+});
+
+// POST
+app.post('/usuarios', (req, res) => {
+  console.log("API post user");
   res.status(200).send(req.body);
 });
 
-app.listen(3000, () => {
-  console.log('Iniciei meu servidor');
+// PUT
+app.put('/usuarios/:id', (req, res) => {
+  console.log("API put user");
+  res.status(200).send(req.params.id);
+});
+
+// DELETE
+app.delete('/usuarios/:id', (req, res) => {
+  console.log("API delete users");
+  res.status(200).send(req.params.id);
 });
