@@ -3,14 +3,13 @@ class Book {
   Author
   PublishingCompany
   PublicationYear
-  Availability
+  Availability = true
 
   constructor(title, author, publishingCompany, publicationYear) {
     this.Title = title;
     this.Author = author;
     this.PublishingCompany = publishingCompany;
     this.PublicationYear = publicationYear;
-    this.Availability = true;
   }
 }
 
@@ -29,24 +28,53 @@ class Library {
   Name
   Address
   Telephone
-  BookCollection
+  BookCollection = []
 
-  constructor(name, address, telephone, bookCollection) {
+  constructor(name, address, telephone, collection) {
     this.Name = name;
     this.Address = address;
     this.Telephone = telephone;
-    this.BookCollection = [];
+    this.BookCollection = collection
   }
 
-  searchBook(bookName) {
-
+  searchBookByTitle(title) {
+    this.BookCollection.forEach (book => {
+      if (book.Title == title) {
+        console.log(book);
+      }
+    })
   }
 
-  bookLoan(bookName) {
-
+  bookLoan(title) {
+    let loan = false
+    this.BookCollection.forEach (book => {
+      if (book.Title == title) {
+        if (book.Availability == true) {
+          book.Availability = false;
+          loan = true;
+        }
+      }
+    })
+    if (loan) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  bookReturn(bookName) {
-    
+  bookReturn(title) {
+    books.forEach (book => {
+      if (book.Title = title) {
+        book.Availability = true;
+        console.log("Returned Book");
+      }
+    })
   }
 }
+
+let library = new Library("Old Library", "Street Town", "13243545");
+
+library.searchBookByTitle("Golden Book");
+library.bookLoan("Good Book");
+library.bookReturn("Good Book");
+
