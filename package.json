@@ -8,5 +8,12 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
-  }
+  },
+  "name": "estudosdodev",
+  "version": "1.0.0",
+  "main": "node.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

@@ -1,28 +1,19 @@
+function calcularGastoCombustivel(distancia, tipoCombustivel) {
 
-function calculateFuelExpense(distanceInMeters, fuelType) {
-    if (typeof distanceInMeters !== 'number' || distanceInMeters < 0) {
-      return "Invalid distance!";
-    }
-
-    if (fuelType !== 'gasoline' && fuelType !== 'etanol') {
-      return "Fuel type invalid!";
-    }
-
-    const gasolineEfficiency = 16
-    const etanolEfficiency = 11
-    const distanceInKm = distanceInMeters / 1000;
-
-    let litersRequired = 0;
-    if (fuelType === 'gasoline') {
-      litersRequired = distanceInKm / gasolineEfficiency;
-    } else {
-      litersRequired = distanceInKm / etanolEfficiency;
-    }
-
-    return Math.round(litersRequired);
+  if (distancia <= 0 || typeof distancia !== "number") {
+    return "A distância precisa ser um número positivo.";
   }
 
-  const distance = 5000;
-  const fuel = "gasoline";
-  const liters = calculateFuelExpense(distance, fuel);
-  console.log(`Will be necessary ${liters} liters ${fuel} to travel ${distance} in meters.`)
+  let eficiencia
+  if (tipoCombustivel === "gasolina") {
+    eficiencia = 16;
+  } else if (tipoCombustivel === "etanol") {
+    eficiencia = 11;
+  } else {
+    return "Tipo de combustível inválido. Use 'gasolina' ou 'etanol'.";
+  }
+
+  const litrosNecessarios = distancia / 1000 / eficiencia;
+
+  return Math.ceil(litrosNecessarios);
+}
