@@ -1,17 +1,28 @@
 
 class Pessoa {
   nome
-  idade
+  #idade
 
-  constructor(nome) {
-    this.nome = nome;
+  constructor(nome, idade) {
     console.log("Olá estou construindo uma pessoa");
+    this.nome = nome;
+    this.setIdade(idade);
+  }
+
+  setIdade(idade) {
+    if (idade < 18) {
+      alert("Não pode menor de idade!");
+    } else {
+      this.#idade = idade;
+    }
+  }
+
+  getIdade() {
+    return this.#idade;
   }
 
   falar(texto) {
     console.log(texto);
-    this.nome = nome;
-    this.idade = idade;
   }
 }
 
@@ -30,3 +41,4 @@ class Motorista extends Pessoa {
 
 let primeiraPesssoa = new Pessoa("Erandir", 19);
 let primeiroMotorista = new Motorista("Claudio", 23, "Fiesta");
+console.log(primeiraPesssoa.getIdade());
