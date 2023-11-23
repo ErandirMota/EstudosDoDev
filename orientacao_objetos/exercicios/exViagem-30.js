@@ -4,18 +4,18 @@ class Client {
   DateBirth
 
   constructor(name, cpf, dateBirth) {
-    this.Name = name
-    this.Cpf = cpf
-    this.DateBirth = dateBirth
+    this.Name = name;
+    this.Cpf = cpf;
+    this.DateBirth = dateBirth;
   }
 }
 
 class TravelPackage {
-  constructor(totalValue) {
-    this.TotalValue = totalValue
-    this.OneWayTicket = oneWayAirfare
-    this.ReturnTicket = returnAirfare
-    this.Holder = clientHolder
+  constructor(totalValue, oneWayAirfare, returnAirfare, clientHolder) {
+    this.TotalValue = totalValue;
+    this.OneWayTicket = oneWayAirfare;
+    this.ReturnTicket = returnAirfare;
+    this.Holder = clientHolder;
   }
 }
 
@@ -28,45 +28,55 @@ class Flight {
     departureLocation,
     destinationLocation
   ) {
-    this.Company = company
-    this.Number = number
-    this.Date = date
-    this.Hour = hour
-    this.DepartureLocation = departureLocation
-    this.DestinationLocation = destinationLocation
+    this.Company = company;
+    this.Number = number;
+    this.Date = date;
+    this.Hour = hour;
+    this.DepartureLocation = departureLocation;
+    this.DestinationLocation = destinationLocation;
   }
 }
 
 class Airfare {
-  Seat
-  FirstClass
-  Value
-  Passenger
-  Flight
 
-  constructor(seat, value) {
-    this.Seat = seat
-    this.FirstClass = false
-    this.Value = value
-    this.Passenger = passengerClient
-    this.Flight = flightAirfare
+  constructor(seat, value, passengerClient, flightAirfare) {
+    this.Seat = seat;
+    this.FirstClass = false;
+    this.Value = value;
+    this.Passenger = passengerClient;
+    this.Flight = flightAirfare;
   }
 
   CalculateValue() {
-    if (this.FirstClass == true) {
-      this.Value = this.Value * 0.5
+    if (this.FirstClass) {
+      this.Value *= 0.5;
     }
+
+    return this.Value;
   }
 
   DisplaySummary() {
     console.log(
-      `Passage in the name of ${this.Passenger.Name} in the seat ${this.Seat} of flight ${this.Flight}`
-    )
+      `Passage in the name of ${this.Passenger.Name} in the seat ${this.Seat} of flight ${this.Flight} bound for ${this.Flight.DestinationLocation}`
+    );
   }
 }
 
-const clientHolder = new Client()
-const oneWayAirfare = new Airfare()
-const returnAirfare = new Airfare()
-const passengerClient = new Client()
-const flightAirfare = new Flight()
+const clientHolder = new Client("John Doe", "123.456.789-00", "01/01/1990");
+const oneWayAirfare = new Airfare("A1", 500, clientHolder, null);
+const returnAirfare = new Airfare("B1", 400, clientHolder, null);
+const passengerClient = new Client("Jane Doe", "987.654.321-00", "02/02/1995");
+const flightAirfare = new Flight(
+  "Airline",
+  "FL123",
+  "2023-08-01",
+  "15:30",
+  "CityA",
+  "CityB"
+);
+
+oneWayAirfare.FirstClass = true;
+console.log(oneWayAirfare.CalculateValue());
+
+oneWayAirfare.Flight = flightAirfare;
+oneWayAirfare.DisplaySummary();
