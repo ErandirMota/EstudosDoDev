@@ -1,25 +1,37 @@
 class Client {
-  Name
-  Cpf
-  DateBirth
+  #name
+  #cpf
+  #dateBirth
 
   constructor(name, cpf, dateBirth) {
-    this.Name = name;
-    this.Cpf = cpf;
-    this.DateBirth = dateBirth;
+    this.#name = name;
+    this.#cpf = cpf;
+    this.#dateBirth = dateBirth;
   }
 }
 
 class TravelPackage {
+  #totalValue
+  #oneWayTicket
+  #returnTicket
+  #holder
+
   constructor(totalValue, oneWayAirfare, returnAirfare, clientHolder) {
-    this.TotalValue = totalValue;
-    this.OneWayTicket = oneWayAirfare;
-    this.ReturnTicket = returnAirfare;
-    this.Holder = clientHolder;
+    this.#totalValue = totalValue;
+    this.#oneWayTicket = oneWayAirfare;
+    this.#returnTicket = returnAirfare;
+    this.#holder = clientHolder;
   }
 }
 
 class Flight {
+  #company
+  #number
+  #date
+  #hour
+  #departureLocation
+  #destinationLocation
+
   constructor(
     company,
     number,
@@ -28,23 +40,28 @@ class Flight {
     departureLocation,
     destinationLocation
   ) {
-    this.Company = company;
-    this.Number = number;
-    this.Date = date;
-    this.Hour = hour;
-    this.DepartureLocation = departureLocation;
-    this.DestinationLocation = destinationLocation;
+    this.#company = company;
+    this.#number = number;
+    this.#date = date;
+    this.#hour = hour;
+    this.#departureLocation = departureLocation;
+    this.#destinationLocation = destinationLocation;
   }
 }
 
 class Airfare {
+  #seat
+  #firstClass
+  #value
+  #passenger
+  #flight
 
   constructor(seat, value, passengerClient, flightAirfare) {
-    this.Seat = seat;
-    this.FirstClass = false;
-    this.Value = value;
-    this.Passenger = passengerClient;
-    this.Flight = flightAirfare;
+    this.#seat = seat;
+    this.#firstClass = false;
+    this.#value = value;
+    this.#passenger = passengerClient;
+    this.#flight = flightAirfare;
   }
 
   CalculateValue() {
