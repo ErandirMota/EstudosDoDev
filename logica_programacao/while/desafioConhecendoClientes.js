@@ -1,5 +1,5 @@
-let nomeCliente = prompt("Digite o nome do cliente: ");
-let idadeCliente= parseInt(prompt("Digite a idade do cliente: "));
+
+let nomeCliente = prompt("Digite o nome do cliente: ");let idadeCliente= parseInt(prompt("Digite a idade do cliente: "));
 let salarioAtual = parseFloat(prompt("Digite o salário atual do cliente: "));
 
 console.log("Nome do cliente: ", nomeCliente);
