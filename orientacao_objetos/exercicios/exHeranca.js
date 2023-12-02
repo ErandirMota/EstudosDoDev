@@ -1,84 +1,44 @@
-
 class Employee {
+  Name
+  Salary
+
   constructor(name, salary) {
-    this.Name = name
-    this.Salary = salary
+    this.Name = name;
+    this.Salary = salary;
   }
 }
 
 class Manager extends Employee {
+  Department
+
   constructor(name, salary, department) {
-    super(name, salary)
-    this.Department = department
+    super(name, salary);
+    this.Department = department;
   }
 
-  DisplayInformations() {
-    console.log(
-      `Name: ${this.Name}, Salary: ${this.Salary}, Department: ${this.Department}`
-    )
+  DisplayInformation() {
+    console.log(`name: ${this.Name}, salary: ${this.Salary}, department: ${this.Department}`);
   }
 }
 
-class Seller extends Employee {
+class Seller extends Employee{
+  CommissionPercentage
+
   constructor(name, salary, commissionPercentage) {
-    super(name, salary)
-    this.CommissionPercentage = commissionPercentage
+    super(name, salary);
+    this.CommissionPercentage = commissionPercentage;
   }
 
   CalculateSalary() {
-    return this.Salary + this.Salary * (this.CommissionPercentage / 100)
+    let comission = this.Salary * (this.CommissionPercentage / 100);
+    return this.Salary + comission;
   }
 
-  DisplayInformations() {
-    const salaryWithCommission = this.CalculateSalary()
-    console.log(
-      `Name: ${this.Name}, Salary: ${this.Salary}, Salary with commission: ${salaryWithCommission}, Commission Percentage: ${this.CommissionPercentage}%`
-    )
+  DisplayInformation() {
+    console.log(`name: ${this.Name}, salary: ${this.Salary}, salary with comission ${this.CalculateSalary()},commission percentage: ${this.CommissionPercentage}`);
   }
 }
 
-class Product {
-  constructor(name, value) {
-    this.Name = name
-    this.Value = value
-  }
-}
-
-class Sale {
-  constructor(seller) {
-    this.Seller = seller
-    this.ProductList = []
-    this.TotalValue = 0
-  }
-
-  AddProduct(name, value) {
-    const newProduct = new Product(name, value)
-    this.ProductList.push(newProduct)
-  }
-
-  CalculateTotal() {
-    this.TotalValue = this.ProductList.reduce(
-      (total, product) => total + product.Value,
-      0
-    )
-  }
-
-  FinalizeSale() {
-    this.CalculateTotal()
-    console.log(
-      `Finalized sale - Seller: ${this.Seller.Name}, Total value: ${this.TotalValue}`
-    )
-  }
-}
-
-let employee = new Employee("João", 5600)
-let manager = new Manager("Erandir", 15000, "Technology")
-
-const seller = new Seller("Alice", 3000, 5)
-const sale = new Sale(seller)
-sale.AddProduct("Mouse", 234.98)
-sale.AddProduct("Keyboard", 70.98)
-sale.FinalizeSale()
-
-manager.DisplayInformations()
-seller.DisplayInformations()
+const employee = new Employee('Pedro', 1500);
+const manager = new Manager('Erandir', 14300, 'Technology');
+const seller = new Seller('João', 5400, 5);
