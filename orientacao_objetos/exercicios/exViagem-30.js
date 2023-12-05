@@ -1,99 +1,100 @@
 class Client {
-  #name
-  #cpf
-  #dateBirth
+  #Name
+  #Cpf
+  #BirthDate
 
-  constructor(name, cpf, dateBirth) {
-    this.#name = name;
-    this.#cpf = cpf;
-    this.#dateBirth = dateBirth;
+  constructor(name, cpf, birthDate) {
+    this.#Name = name;
+    this.#Cpf = cpf;
+    this.#BirthDate = birthDate;
+  }
+
+  getClient() {
+
+  }
+
+  setClient() {
+
   }
 }
 
 class TravelPackage {
-  #totalValue
-  #oneWayTicket
-  #returnTicket
-  #holder
+  #CustomerHolder
+  #OnewayAirTicket
+  #ReturnAirTicket
+  #TotalValue
 
-  constructor(totalValue, oneWayAirfare, returnAirfare, clientHolder) {
-    this.#totalValue = totalValue;
-    this.#oneWayTicket = oneWayAirfare;
-    this.#returnTicket = returnAirfare;
-    this.#holder = clientHolder;
+  constructor(passenger, oneWayAirTicket, returnAirTicket, totalValue) {
+    this.#CustomerHolder = passenger
+    this.#OnewayAirTicket = oneWayAirTicket
+    this.#ReturnAirTicket = returnAirTicket
+    this.#TotalValue = totalValue
   }
+
+  getClient() {}
+
+  setClient() {}
 }
 
 class Flight {
-  #company
-  #number
-  #date
-  #hour
-  #departureLocation
-  #destinationLocation
+  #Company
+  #Number
+  #Date
+  #Hour
+  #DepartureLocation
+  #Destination
 
-  constructor(
-    company,
-    number,
-    date,
-    hour,
-    departureLocation,
-    destinationLocation
-  ) {
-    this.#company = company;
-    this.#number = number;
-    this.#date = date;
-    this.#hour = hour;
-    this.#departureLocation = departureLocation;
-    this.#destinationLocation = destinationLocation;
+  constructor(company, number, date, hour, departureLocation, destination) {
+    this.#Company = company
+    this.#Number = number
+    this.#Date = date
+    this.#Hour = hour
+    this.#DepartureLocation = departureLocation
+    this.#Destination = destination
   }
+
+  getClient() {}
+
+  setClient() {}
 }
 
 class Airfare {
-  #seat
-  #firstClass
-  #value
-  #passenger
-  #flight
+  #Seat
+  #FirstClass = true
+  #Value
+  #Passenger
+  #Flight
 
-  constructor(seat, value, passengerClient, flightAirfare) {
-    this.#seat = seat;
-    this.#firstClass = false;
-    this.#value = value;
-    this.#passenger = passengerClient;
-    this.#flight = flightAirfare;
+  constructor(seat, firstClass, value, passenger, flight) {
+    this.#Seat = seat
+    this.#FirstClass = firstClass
+    this.#Value = value
+    this.#Passenger = passenger
+    this.#Flight = flight
   }
 
-  CalculateValue() {
+  getClient() {}
+
+  setClient() {}
+
+  calculateValue() {
     if (this.FirstClass) {
-      this.Value *= 0.5;
+      return this.Value + this.Value * 0.5
+    } else {
+      return this.Value
     }
-
-    return this.Value;
   }
 
-  DisplaySummary() {
+  displaySummary() {
     console.log(
-      `Passage in the name of ${this.Passenger.Name} in the seat ${this.Seat} of flight ${this.Flight} bound for ${this.Flight.DestinationLocation}`
-    );
+      `Passage in the name of ${this.Passenger.Name} in seat ${this.Seat} of the flight ${this.Flight.Number} to destination ${this.Flight.Destination}`
+    )
   }
 }
 
-const clientHolder = new Client("John Doe", "123.456.789-00", "01/01/1990");
-const oneWayAirfare = new Airfare("A1", 500, clientHolder, null);
-const returnAirfare = new Airfare("B1", 400, clientHolder, null);
-const passengerClient = new Client("Jane Doe", "987.654.321-00", "02/02/1995");
-const flightAirfare = new Flight(
-  "Airline",
-  "FL123",
-  "2023-08-01",
-  "15:30",
-  "CityA",
-  "CityB"
-);
-
-oneWayAirfare.FirstClass = true;
-console.log(oneWayAirfare.CalculateValue());
-
-oneWayAirfare.Flight = flightAirfare;
-oneWayAirfare.DisplaySummary();
+const client1 = new Client('João', '002.050.534-43', '05/11/1998');
+const flight1 = new Flight("GOL", 2, "10/05/2023", "23:50", "Brasilia", "Guarulhos");
+const airfare1 = new Airfare(43, true, 1200, client1, flight1);
+const travelPackage1 = new TravelPackage(client1, airfare1, airfare1);
+console.log(airfare1.calculateValue());
+airfare1.displaySummary();
