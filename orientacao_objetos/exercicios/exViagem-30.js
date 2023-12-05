@@ -9,15 +9,38 @@ class Client {
     this.#BirthDate = birthDate;
   }
 
-  getClient() {
-
+  getName() {
+    return this.#Name;
   }
 
-  setClient() {
+  setName(value) {
+    if (value.length <= 50) {
+      this.#Name = value;
+    } else {
+      console.log("Error: Name must have at most 50 characters.");
+    }
+  }
 
+  getCpf() {
+    return this.#Cpf;
+  }
+
+  setCpf(value) {
+    if (value.length <= 11) {
+      this.#Cpf = value;
+    } else {
+      console.log("Error: CPF must have at most 11 characters.");
+    }
+  }
+
+  getBirthDate() {
+    return this.#BirthDate;
+  }
+
+  setBirthDate(value) {
+    this.#BirthDate = value;
   }
 }
-
 class TravelPackage {
   #CustomerHolder
   #OnewayAirTicket
@@ -31,9 +54,37 @@ class TravelPackage {
     this.#TotalValue = totalValue
   }
 
-  getClient() {}
+  getCustomerHolder() {
+    return this.#CustomerHolder;
+  }
+  
+  setCustomerHolder(value) {
+    this.#CustomerHolder = value;
+  }
 
-  setClient() {}
+  getOneWayAirTicket() {
+    return this.#OnewayAirTicket;
+  }
+
+  setOneWayAirTicket(value) {
+    this.#OnewayAirTicket = value;
+  }
+
+  getReturnAirTicket() {
+    return this.#ReturnAirTicket;
+  }
+
+  setReturnAirTicket(value) {
+    this.#ReturnAirTicket = value;
+  }
+
+  getTotalValue() {
+    return this.#TotalValue;
+  }
+
+  setTotalValue(value) {
+    this.#TotalValue = value;
+  }
 }
 
 class Flight {
@@ -53,9 +104,53 @@ class Flight {
     this.#Destination = destination
   }
 
-  getClient() {}
+  getCompany() {
+    return this.#Company;
+  }
 
-  setClient() {}
+  setCompany(value) {
+    this.#Company = value;
+  }
+
+  getNumber() {
+    return this.#Number;
+  }
+
+  setNumber(value) {
+    this.#Number = value;
+  }
+
+  getDate() {
+    return this.#Date;
+  }
+
+  setDate(value) {
+    this.#Date = value;
+  }
+
+  getHour() {
+    return this.#Hour;
+  }
+
+  setHour(value) {
+    this.#Hour = value;
+  }
+
+  getDepartureLocation() {
+    return this.#DepartureLocation;
+  }
+
+  setDepartureLocation(value) {
+    this.#DepartureLocation = value;
+  }
+
+  getDestination() {
+    return this.#Destination;
+  }
+
+  setDestination(value) {
+    this.#Destination = value;
+  }
 }
 
 class Airfare {
@@ -73,21 +168,49 @@ class Airfare {
     this.#Flight = flight
   }
 
-  getClient() {}
+  getSeat() {
+    return this.#Seat;
+  }
 
-  setClient() {}
+  setSeat(value) {
+    this.#Seat = value;
+  }
+
+  getFirstClass() {
+    return this.#FirstClass;
+  }
+
+  setFirstClass(value) {
+    if (typeof value === 'boolean') {
+      this.#FirstClass = value;
+    } else {
+      console.log("Error: FirstClass must be a boolean value.")
+    }
+  }
+
+  getValue() {
+    return this.#Value;
+  }
+
+  setValue(newValue) {
+    if (newValue > 0) {
+      this.#Value = newValue;
+    } else {
+      console.log("Error: Value must be greater than zero.");
+    }
+  }
 
   calculateValue() {
-    if (this.FirstClass) {
-      return this.Value + this.Value * 0.5
+    if (this.#FirstClass) {
+      return this.#Value + this.#Value * 0.5
     } else {
-      return this.Value
+      return this.#Value
     }
   }
 
   displaySummary() {
     console.log(
-      `Passage in the name of ${this.Passenger.Name} in seat ${this.Seat} of the flight ${this.Flight.Number} to destination ${this.Flight.Destination}`
+      `Passage in the name of ${this.#Passenger.getName()} in seat ${this.#Seat} of the flight ${this.#Flight.getNumber()} to destination ${this.#Flight.getDestination()}`
     )
   }
 }
